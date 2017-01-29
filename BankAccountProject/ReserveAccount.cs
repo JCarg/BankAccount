@@ -11,8 +11,8 @@ namespace BankAccountProject
         //Fields
         private double reserveaccountbalance = 320123.00;
         private double totalreservedeposits;
-        private double totalreservewithddrawals;
-        //private double availablebalance = 3500.00;
+        private double reservewithddrawalamount;
+        private double reservedepositamount;
 
         //Properties
         public double ReserveBalance
@@ -25,11 +25,17 @@ namespace BankAccountProject
             get { return this.totalreservedeposits; }
             set { this.totalreservedeposits = value; }
         }
-        public double TotalReserveWithdrawals
+        public double ReserveWithdrawalAmount
         {
-            get { return this.totalreservewithddrawals; }
-            set { this.totalreservewithddrawals = value; }
+            get { return this.reservewithddrawalamount; }
+            set { this.reservewithddrawalamount = value; }
         }
+        public double ReserveDepositAmount
+        {
+            get { return this.reservedepositamount; }
+            set { this.reservedepositamount = value; }
+        }
+
 
 
         //Constructors
@@ -39,23 +45,20 @@ namespace BankAccountProject
         }
 
         //Methods
-        public override void Deposit()
+        public void ReserveDeposit()
         {
-            base.Deposit();
-            this.reserveaccountbalance += deposit;
-            this.totalreservedeposits += deposit;
+            this.reserveaccountbalance += reservedepositamount;
+            this.totalreservedeposits += reservedepositamount;
         }
-        public override void Withdrawal()
+        public void ReserveWithdrawal()
         {
-            base.Withdrawal();
-            this.reserveaccountbalance -= withdrawal;
-            this.totalreservewithddrawals -= withdrawal;
+            this.reserveaccountbalance -= reservewithddrawalamount;
         }
 
         public override void DisplayInfo()
         {
             base.DisplayInfo();
-            Console.WriteLine("Reserve Account Balance: " + ReserveBalance);
+            Console.WriteLine("Reserve Account Balance: " +"$"+ ReserveBalance);
         }
         public void DisplayReserveInfo()
         {

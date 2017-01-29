@@ -11,8 +11,8 @@ namespace BankAccountProject
         //Fields
         private double savingsaccountbalance = 250000.00;
         private double totalsavingsdeposits;
-        private double totalsavingswithddrawals;
-        //private double availablebalance = 3500.00;
+        private double savingsdepositamount;
+        private double savingswithdrawalamount;
 
         //Properties
         public double SavingsBalance
@@ -20,15 +20,20 @@ namespace BankAccountProject
             get { return this.savingsaccountbalance; }
             set { this.savingsaccountbalance = value; }
         }
-        public double TotalSavingsDeposit
+        public double TotalSavingsDeposita
         {
             get { return this.totalsavingsdeposits; }
             set { this.totalsavingsdeposits = value; }
         }
-        public double TotalSavingsWithdrawals
+        public double SavingsDepositAmount
         {
-            get { return this.totalsavingswithddrawals; }
-            set { this.totalsavingswithddrawals = value; }
+            get { return this.savingsdepositamount; }
+            set { this.savingsdepositamount = value; }
+        }
+        public double SavingsWithdrawalAmount
+        {
+            get { return this.savingswithdrawalamount; }
+            set { this.savingswithdrawalamount = value; }
         }
 
 
@@ -39,23 +44,20 @@ namespace BankAccountProject
         }
 
         //Methods
-        public override void Deposit()
+        public void SavingsDeposit()
         {
-            base.Deposit();
-            this.savingsaccountbalance += deposit;
-            this.totalsavingsdeposits += deposit;
+            this.savingsaccountbalance += savingsdepositamount;
+            this.totalsavingsdeposits += savingsdepositamount;
         }
-        public override void Withdrawal()
+        public void SavingsWithdrawal()
         {
-            base.Withdrawal();
-            this.savingsaccountbalance -= withdrawal;
-            this.totalsavingswithddrawals -= withdrawal;
+            this.savingsaccountbalance -= savingswithdrawalamount;
         }
 
         public override void DisplayInfo()
         {
             base.DisplayInfo();
-            Console.WriteLine("Savings Account Balance: " + SavingsBalance);
+            Console.WriteLine("Savings Account Balance: " +"$"+ SavingsBalance);
         }
         public void DisplaySavingsInfo()
         {

@@ -11,7 +11,8 @@ namespace BankAccountProject
         //Fields
         private double checkingaccountbalance = 3500.00;
         private double totalcheckingdeposits;
-        //private double availablebalance = 3500.00;
+        private double checkingdepositamount;
+        private double checkingwithdrawalamount;
        
        //Properties
        public double CheckingBalance
@@ -24,6 +25,16 @@ namespace BankAccountProject
             get { return this.totalcheckingdeposits; }
             set { this.totalcheckingdeposits = value; }
         }
+        public double CheckingDepositAmount
+        {
+            get { return this.checkingdepositamount; }
+            set { this.checkingdepositamount = value; }
+        }
+        public double CheckingWithdrawalAmount
+        {
+            get { return this.checkingwithdrawalamount; }
+            set { this.checkingwithdrawalamount = value; }
+        }
 
         //Constructors
         public CheckingAccount()
@@ -32,22 +43,24 @@ namespace BankAccountProject
         }
 
         //Methods
-        public override void Deposit()
+        public void CheckingDeposit()
         {
-            base.Deposit();
-            this.checkingaccountbalance += deposit;
-            this.totalcheckingdeposits += deposit;
+            this.checkingaccountbalance += checkingdepositamount;
+            this.totalcheckingdeposits += checkingdepositamount;
         }
-        public override void Withdrawal()
+        public void CheckingWithdrawal()
         {
-            base.Withdrawal();
-            this.checkingaccountbalance -= withdrawal;
+            this.checkingaccountbalance -= checkingwithdrawalamount;
         }
 
         public override void DisplayInfo()
         {
             base.DisplayInfo();
-            Console.WriteLine("Checking Account Balance: " + checkingaccountbalance);
+            Console.WriteLine("Checking Account Balance: " +"$"+ checkingaccountbalance);
+        }
+        public void DisplayCheckingsInfo()
+        {
+            Console.WriteLine("Checking Account Balance: " + "$" + checkingaccountbalance);
         }
 
 

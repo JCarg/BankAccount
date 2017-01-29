@@ -54,14 +54,6 @@ namespace BankAccountProject
             Random rand = new Random();
             AccountNumber=rand.Next(369000, 370000);    
         }
-        public virtual void Deposit()
-        {
-
-        }
-        public virtual void Withdrawal()
-        {
-
-        }
         
     }
 }
