@@ -10,14 +10,11 @@ namespace BankAccountProject
     {
         static void Main(string[] args)
         {
-            CheckingAccount Client = new CheckingAccount();
-            
-            Client.GetAccountNumber();
+            ReserveAccount Client = new ReserveAccount();           
             Client.DisplayInfo();
             Console.WriteLine("Please Deposit:");
             Client.DepositAmount = double.Parse(Console.ReadLine());
-            Client.Deposit();
-            Console.WriteLine("+"+Client.CheckingBalance);
+            
 
 
         }

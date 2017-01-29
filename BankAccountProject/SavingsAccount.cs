@@ -55,7 +55,11 @@ namespace BankAccountProject
         public override void DisplayInfo()
         {
             base.DisplayInfo();
-            Console.WriteLine("Checking Account Balance: " + CheckingBalance);
+            Console.WriteLine("Savings Account Balance: " + SavingsBalance);
+        }
+        public void DisplaySavingsInfo()
+        {
+            Console.WriteLine("Savings Account Balance: " + SavingsBalance);
         }
     }
 }
