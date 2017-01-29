@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace BankAccountProject
 {
-    class CheckingAccount:Account
+     class CheckingAccount:Account
     {
         //Fields
         private double checkingaccountbalance = 3500.00;
         private double totalcheckingdeposits;
-
+        //private double availablebalance = 3500.00;
+       
        //Properties
        public double CheckingBalance
        {
@@ -23,18 +24,30 @@ namespace BankAccountProject
             get { return this.totalcheckingdeposits; }
             set { this.totalcheckingdeposits = value; }
         }
-        
+
         //Constructors
-        private CheckingAccount()
+        public CheckingAccount()
         {
-            this.totalcheckingdeposits=
+            //this.totalcheckingdeposits +=
         }
-        
+
         //Methods
-        public virtual static DepositingFunds()
+        public override void Deposit()
         {
-            double Deposit = int.Parse(Console.ReadLine());
-            this.checkingaccountbal
+            base.Deposit();
+            this.checkingaccountbalance += deposit;
+            this.totalcheckingdeposits += deposit;
+        }
+        public override void Withdrawal()
+        {
+            base.Withdrawal();
+            this.checkingaccountbalance -= withdrawal;
+        }
+
+        public override void DisplayInfo()
+        {
+            base.DisplayInfo();
+            Console.WriteLine("Checking Account Balance: " + CheckingBalance);
         }
 
 
