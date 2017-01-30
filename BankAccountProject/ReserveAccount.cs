@@ -9,7 +9,7 @@ namespace BankAccountProject
     class ReserveAccount:SavingsAccount
     {
         //Fields
-        private double reserveaccountbalance = 320123.00;
+        private double reserveaccountbalance;
         private double totalreservedeposits;
         private double reservewithddrawalamount;
         private double reservedepositamount;
@@ -39,9 +39,9 @@ namespace BankAccountProject
 
 
         //Constructors
-        public ReserveAccount()
+        public ReserveAccount():base()
         {
-            //this.totalcheckingdeposits +=
+            this.reserveaccountbalance = 320123.00;
         }
 
         //Methods
@@ -55,14 +55,14 @@ namespace BankAccountProject
             this.reserveaccountbalance -= reservewithddrawalamount;
         }
 
-        public override void DisplayInfo()
+        public override void DisplayInitialInfo()
         {
-            base.DisplayInfo();
+            base.DisplayInitialInfo();
             Console.WriteLine("Reserve Account Balance: " +"$"+ ReserveBalance);
         }
         public void DisplayReserveInfo()
         {
-            Console.WriteLine("Savings Account Balance: " + ReserveBalance);
+            Console.WriteLine("Reserve Account Balance: " +"$"+ ReserveBalance);
         }
 
     }

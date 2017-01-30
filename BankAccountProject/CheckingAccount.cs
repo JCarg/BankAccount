@@ -9,7 +9,7 @@ namespace BankAccountProject
      class CheckingAccount:Account
     {
         //Fields
-        private double checkingaccountbalance = 3500.00;
+        private double checkingaccountbalance;
         private double totalcheckingdeposits;
         private double checkingdepositamount;
         private double checkingwithdrawalamount;
@@ -39,7 +39,7 @@ namespace BankAccountProject
         //Constructors
         public CheckingAccount()
         {
-            //this.totalcheckingdeposits +=
+            this.checkingaccountbalance = 3500.00;
         }
 
         //Methods
@@ -53,9 +53,9 @@ namespace BankAccountProject
             this.checkingaccountbalance -= checkingwithdrawalamount;
         }
 
-        public override void DisplayInfo()
+        public override void DisplayInitialInfo()
         {
-            base.DisplayInfo();
+            base.DisplayInitialInfo();
             Console.WriteLine("Checking Account Balance: " +"$"+ checkingaccountbalance);
         }
         public void DisplayCheckingsInfo()

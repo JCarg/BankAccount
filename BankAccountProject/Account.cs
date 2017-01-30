@@ -12,8 +12,6 @@ namespace BankAccountProject
         private string firstname;
         private string lastname;
         private double accountnumber=312613;
-        protected double withdrawal;
-        protected double deposit;
 
         //properties
         public string Name
@@ -26,11 +24,6 @@ namespace BankAccountProject
             get { return this.accountnumber; }
             set { this.accountnumber = value; }
         }
-        public double DepositAmount
-        {
-            get { return this.deposit; }
-            set { this.deposit = value; }
-        }
 
         //Constructors
         public Account()
@@ -38,12 +31,9 @@ namespace BankAccountProject
             this.firstname = "Ebonezer";
             this.lastname = "Scrooge";
         }
-        public Account(string firstname)
-        {
-            
-        }
+        
         //Methods
-        public virtual void DisplayInfo()
+        public virtual void DisplayInitialInfo()
         {
             Console.WriteLine("Welcome "+ Name+"!");
             Console.WriteLine("Account Number: " + AccountNumber);     

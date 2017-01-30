@@ -9,7 +9,7 @@ namespace BankAccountProject
     class SavingsAccount:CheckingAccount
     {
         //Fields
-        private double savingsaccountbalance = 250000.00;
+        private double savingsaccountbalance;
         private double totalsavingsdeposits;
         private double savingsdepositamount;
         private double savingswithdrawalamount;
@@ -38,9 +38,9 @@ namespace BankAccountProject
 
 
         //Constructors
-        public SavingsAccount()
+        public SavingsAccount():base()
         {
-            //this.totalcheckingdeposits +=
+            this.savingsaccountbalance = 25000.00;
         }
 
         //Methods
@@ -54,9 +54,9 @@ namespace BankAccountProject
             this.savingsaccountbalance -= savingswithdrawalamount;
         }
 
-        public override void DisplayInfo()
+        public override void DisplayInitialInfo()
         {
-            base.DisplayInfo();
+            base.DisplayInitialInfo();
             Console.WriteLine("Savings Account Balance: " +"$"+ SavingsBalance);
         }
         public void DisplaySavingsInfo()
