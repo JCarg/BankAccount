@@ -62,7 +62,5 @@ namespace BankAccountProject
         {
             Console.WriteLine("Checking Account Balance: " + "$" + checkingaccountbalance);
         }
-
-
     }
 }

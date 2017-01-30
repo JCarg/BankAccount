@@ -10,7 +10,6 @@ namespace BankAccountProject
     {
         //Fields
         private double savingsaccountbalance;
-        private double totalsavingsdeposits;
         private double savingsdepositamount;
         private double savingswithdrawalamount;
 
@@ -19,11 +18,6 @@ namespace BankAccountProject
         {
             get { return this.savingsaccountbalance; }
             set { this.savingsaccountbalance = value; }
-        }
-        public double TotalSavingsDeposita
-        {
-            get { return this.totalsavingsdeposits; }
-            set { this.totalsavingsdeposits = value; }
         }
         public double SavingsDepositAmount
         {
@@ -47,7 +41,6 @@ namespace BankAccountProject
         public void SavingsDeposit()
         {
             this.savingsaccountbalance += savingsdepositamount;
-            this.totalsavingsdeposits += savingsdepositamount;
         }
         public void SavingsWithdrawal()
         {

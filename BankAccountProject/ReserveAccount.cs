@@ -10,7 +10,6 @@ namespace BankAccountProject
     {
         //Fields
         private double reserveaccountbalance;
-        private double totalreservedeposits;
         private double reservewithddrawalamount;
         private double reservedepositamount;
 
@@ -19,11 +18,6 @@ namespace BankAccountProject
         {
             get { return this.reserveaccountbalance; }
             set { this.reserveaccountbalance = value; }
-        }
-        public double TotalReserveDeposit
-        {
-            get { return this.totalreservedeposits; }
-            set { this.totalreservedeposits = value; }
         }
         public double ReserveWithdrawalAmount
         {
@@ -36,8 +30,6 @@ namespace BankAccountProject
             set { this.reservedepositamount = value; }
         }
 
-
-
         //Constructors
         public ReserveAccount():base()
         {
@@ -48,7 +40,6 @@ namespace BankAccountProject
         public void ReserveDeposit()
         {
             this.reserveaccountbalance += reservedepositamount;
-            this.totalreservedeposits += reservedepositamount;
         }
         public void ReserveWithdrawal()
         {

@@ -14,22 +14,27 @@ namespace BankAccountProject
 
             ReserveAccount Client = new ReserveAccount();
 
-        //          Main User Interface
+            //             Main User Interface
             Client.DisplayInitialInfo();
-        MainMenu:           
+        MainMenu:
             Console.WriteLine("Please select the account you would like to access.");
             Console.WriteLine("Type number of selection:");
-            Console.WriteLine("1. Checkings");
+            Console.WriteLine("1. Checking");
             Console.WriteLine("2. Savings");
             Console.WriteLine("3. Reserve");
             string accountselection = Console.ReadLine();
 
+
+            //             Checking Account Transaction 
             if (accountselection == "1")
             {
                 Console.WriteLine("Would you like to make a withdrawal or deposit?");
                 Console.WriteLine("Type W for withdrawal or D for deposit:");
             CheckingsMenu:
                 string accountaltertype = Console.ReadLine().ToUpper();
+
+                
+                //         User can deposit or withdraw funds from checking account
                 if (accountaltertype == "D")
                 {
                     Console.WriteLine("Please enter deposit amount:");
@@ -58,11 +63,7 @@ namespace BankAccountProject
                     goto CheckingsMenu;
                 }
 
-                //using (StreamWriter CheckingAccountSummary = new StreamWriter("CheckingAccountSummary.txt", true))
-                //{
-                //    CheckingAccountSummary.WriteLine(Client.Name + " " + Client.AccountNumber + " Checking Account " + DateTime.Now + " +" + Client.CheckingDepositAmount + " -" + Client.CheckingWithdrawalAmount + " " + Client.CheckingBalance + accountaltertype+"\n");
-                //}
-
+                //              The user can continue their banking transaction
                 Console.WriteLine("Would you like to make another transaction?");
                 Console.WriteLine("Enter \"Y\" for yes and \"N\" for no:");
                 string transactionrestart = Console.ReadLine().ToUpper();
@@ -72,16 +73,19 @@ namespace BankAccountProject
                 }
                 else
                 {
+                    Console.WriteLine("Thanks for using SanGhosts Bank!");
                     Environment.Exit(0);
                 }
             }
 
+            //              User can make a transaction from Savings account
             else if (accountselection == "2")
             {
                 Console.WriteLine("Would you like to make a withdrawal or deposit?");
                 Console.WriteLine("Type W for withdrawal or D for deposit:");
             SavingsMenu:
                 string accountaltertype = Console.ReadLine().ToUpper();
+
                 if (accountaltertype == "D")
                 {
                     Console.WriteLine("Please enter deposit amount:");
@@ -109,6 +113,7 @@ namespace BankAccountProject
                     Console.WriteLine("Please reenter selection:");
                     goto SavingsMenu;
                 }
+
                 Console.WriteLine("Would you like to make another transaction?");
                 Console.WriteLine("Enter \"Y\" for yes and \"N\" for no:");
                 string transactionrestart = Console.ReadLine().ToUpper();
@@ -118,35 +123,38 @@ namespace BankAccountProject
                 }
                 else
                 {
+                    Console.WriteLine("Thanks for using SanGhosts Bank!");
                     Environment.Exit(0);
                 }
             }
 
+            //              User can make transaction from Reserve account
             else if (accountselection == "3")
             {
                 Console.WriteLine("Would you like to make a withdrawal or deposit?");
                 Console.WriteLine("Type W for withdrawal or D for deposit:");
             ReserveMenu:
-                string accountaltertype = Console.ReadLine().ToUpper();
-                if (accountaltertype == "D")
+                string transactiontype = Console.ReadLine().ToUpper();
+
+                if (transactiontype == "D")
                 {
                     Console.WriteLine("Please enter deposit amount:");
                     Client.ReserveDepositAmount = double.Parse(Console.ReadLine());
                     Client.ReserveDeposit();
                     using (StreamWriter ReserveAccountSummary = new StreamWriter("ReserveAccountSummary.txt", true))
                     {
-                        ReserveAccountSummary.WriteLine(Client.Name + " " + Client.AccountNumber + " Reserve Account " + DateTime.Now + " +" + Client.ReserveDepositAmount + " " + Client.ReserveBalance + " " + accountaltertype + "\n");
+                        ReserveAccountSummary.WriteLine(Client.Name + " " + Client.AccountNumber + " Reserve Account " + DateTime.Now + " +" + Client.ReserveDepositAmount + " " + Client.ReserveBalance + " " + transactiontype + "\n");
                     }
                     Client.DisplayReserveInfo();
                 }
-                else if (accountaltertype == "W")
+                else if (transactiontype == "W")
                 {
                     Console.WriteLine("Please enter withdrawal amount:");
                     Client.ReserveWithdrawalAmount = double.Parse(Console.ReadLine());
                     Client.ReserveWithdrawal();
                     using (StreamWriter ReserveAccountSummary = new StreamWriter("ReserveAccountSummary.txt", true))
                     {
-                        ReserveAccountSummary.WriteLine(Client.Name + " " + Client.AccountNumber + " Reserve Account " + DateTime.Now + " -" + Client.ReserveWithdrawalAmount + " " + Client.ReserveBalance + " " + accountaltertype + "\n");
+                        ReserveAccountSummary.WriteLine(Client.Name + " " + Client.AccountNumber + " Reserve Account " + DateTime.Now + " -" + Client.ReserveWithdrawalAmount + " " + Client.ReserveBalance + " " + transactiontype + "\n");
                     }
                     Client.DisplaySavingsInfo();
                 }
@@ -155,6 +163,7 @@ namespace BankAccountProject
                     Console.WriteLine("Please reenter selection:");
                     goto ReserveMenu;
                 }
+
                 Console.WriteLine("Would you like to make another transaction?");
                 Console.WriteLine("Enter \"Y\" for yes and \"N\" for no:");
                 string transactionrestart = Console.ReadLine().ToUpper();
@@ -164,6 +173,7 @@ namespace BankAccountProject
                 }
                 else
                 {
+                    Console.WriteLine("Thanks for using SanGhosts Bank!");
                     Environment.Exit(0);
                 }
             }

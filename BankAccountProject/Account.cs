@@ -36,14 +36,7 @@ namespace BankAccountProject
         public virtual void DisplayInitialInfo()
         {
             Console.WriteLine("Welcome "+ Name+"!");
-            Console.WriteLine("Account Number: " + AccountNumber);     
-                     
-        }
-        public void GetAccountNumber()
-        {
-            Random rand = new Random();
-            AccountNumber=rand.Next(369000, 370000);    
-        }
-        
+            Console.WriteLine("Account Number: " + AccountNumber);                    
+        }        
     }
 }
